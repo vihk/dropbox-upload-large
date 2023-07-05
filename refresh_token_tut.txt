@@ -1,0 +1,10 @@
+weird dropbox oauth2 stuff
+
+1. https://www.dropbox.com/developers/apps --  Selecting your app and locate the app key and app secret.
+2. head over to https://www.dropbox.com/oauth2/authorize?client_id=APPKEYHERE&response_type=code&token_access_type=offline -- replacing APPKEYHERE in the url with our key. And copy the access token.
+3. copy and paste this into terminal:
+curl https://api.dropbox.com/oauth2/token \
+    -d code=AUTHORIZATIONCODEHERE \
+    -d grant_type=authorization_code \
+    -u APPKEYHERE:APPSECRETHERE​
+4. boom: it it should return your "refresh_token"!
